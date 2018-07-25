@@ -49,9 +49,9 @@ class ViewController: UIViewController ,UITableViewDelegate ,UITableViewDataSour
         cell.textLabel?.text = tasks[indexPath.row].name
         return cell
     }
-    var selectedIndex:Int!
+    var selectedTask:Task?
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedIndex = indexPath.row
+        selectedTask = tasks[indexPath.row]
         performSegue(withIdentifier: "segueDV", sender: nil)
     }
     
@@ -60,7 +60,8 @@ class ViewController: UIViewController ,UITableViewDelegate ,UITableViewDataSour
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let dc:DetailViewController = segue.destination as! DetailViewController
-        dc.passedIndex = selectedIndex
+      print(selectedTask)
+        dc.task = selectedTask
     }
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
@@ -113,6 +114,8 @@ class ViewController: UIViewController ,UITableViewDelegate ,UITableViewDataSour
         // アラートを画面に表示
         self.present(alert, animated: true, completion: nil)
     }
+  
+  @IBAction func exitView(segue:UIStoryboardSegue) {}
     
 
 }

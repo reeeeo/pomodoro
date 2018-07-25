@@ -14,18 +14,19 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var myDeadLine: UITextField!
     @IBOutlet weak var mycomments: UITextView!
     var datePicker: UIDatePicker = UIDatePicker()
-    var passedIndex:Int? = nil
+  
+    // 詳細画面で表示されるTask
+    var task: Task?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        myTask.text = tasks[passedIndex!].name
-        
-    }
-    @IBAction func tapDate(_ sender: UITextField) {
-        
+        myTask.text = task?.name
         // インプットビュー設定
+        datePicker.datePickerMode = .date
         myDeadLine.inputView = datePicker
+    }
+  
+    @IBAction func tapDate(_ sender: UITextField) {
         // 日付のフォーマット
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
@@ -36,8 +37,11 @@ class DetailViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
+  
+    @IBAction func tapUpdateButton(_ sender: UIBarButtonItem) {
+      
+    }
+  
     /*
     // MARK: - Navigation
 
