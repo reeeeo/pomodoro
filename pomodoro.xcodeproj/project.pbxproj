@@ -13,9 +13,15 @@
 		7A27D6E221085E0400CB3084 /* pomodoro.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7A27D6E021085E0400CB3084 /* pomodoro.xcdatamodeld */; };
 		7A27D6E421085E0600CB3084 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A27D6E321085E0600CB3084 /* Assets.xcassets */; };
 		7A27D6E721085E0600CB3084 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A27D6E521085E0600CB3084 /* LaunchScreen.storyboard */; };
+		DD35310B21089BED00C98318 /* Task+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD35310921089BED00C98318 /* Task+CoreDataClass.swift */; };
+		DD35310C21089BED00C98318 /* Task+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD35310A21089BED00C98318 /* Task+CoreDataProperties.swift */; };
+		DD35310E21089F3C00C98318 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD35310D21089F3C00C98318 /* DetailViewController.swift */; };
+		DDD6DBB82108AFB800634B6F /* IQKeyboardManagerSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDD6DBB72108AFB800634B6F /* IQKeyboardManagerSwift.framework */; };
+		F442E8E28225136B0B2EDBB9 /* Pods_pomodoro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5101FAA615CC849F8133242 /* Pods_pomodoro.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7832263BEAE9F99EF1435571 /* Pods-pomodoro.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pomodoro.debug.xcconfig"; path = "Pods/Target Support Files/Pods-pomodoro/Pods-pomodoro.debug.xcconfig"; sourceTree = "<group>"; };
 		7A27D6D621085E0400CB3084 /* pomodoro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pomodoro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A27D6D921085E0400CB3084 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7A27D6DB21085E0400CB3084 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -24,6 +30,12 @@
 		7A27D6E321085E0600CB3084 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7A27D6E621085E0600CB3084 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7A27D6E821085E0600CB3084 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D7AFB18B769E2129C5B23387 /* Pods-pomodoro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pomodoro.release.xcconfig"; path = "Pods/Target Support Files/Pods-pomodoro/Pods-pomodoro.release.xcconfig"; sourceTree = "<group>"; };
+		DD35310921089BED00C98318 /* Task+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataClass.swift"; sourceTree = "<group>"; };
+		DD35310A21089BED00C98318 /* Task+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		DD35310D21089F3C00C98318 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		DDD6DBB72108AFB800634B6F /* IQKeyboardManagerSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = IQKeyboardManagerSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F5101FAA615CC849F8133242 /* Pods_pomodoro.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pomodoro.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +43,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDD6DBB82108AFB800634B6F /* IQKeyboardManagerSwift.framework in Frameworks */,
+				F442E8E28225136B0B2EDBB9 /* Pods_pomodoro.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,8 +54,12 @@
 		7A27D6CD21085E0400CB3084 = {
 			isa = PBXGroup;
 			children = (
+				DD35310921089BED00C98318 /* Task+CoreDataClass.swift */,
+				DD35310A21089BED00C98318 /* Task+CoreDataProperties.swift */,
 				7A27D6D821085E0400CB3084 /* pomodoro */,
 				7A27D6D721085E0400CB3084 /* Products */,
+				D26890B5EA95652519792B55 /* Pods */,
+				A857EDA4E6E853EE72C109F9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,6 +76,7 @@
 			children = (
 				7A27D6D921085E0400CB3084 /* AppDelegate.swift */,
 				7A27D6DB21085E0400CB3084 /* ViewController.swift */,
+				DD35310D21089F3C00C98318 /* DetailViewController.swift */,
 				7A27D6DD21085E0400CB3084 /* Main.storyboard */,
 				7A27D6E321085E0600CB3084 /* Assets.xcassets */,
 				7A27D6E521085E0600CB3084 /* LaunchScreen.storyboard */,
@@ -67,6 +86,24 @@
 			path = pomodoro;
 			sourceTree = "<group>";
 		};
+		A857EDA4E6E853EE72C109F9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DDD6DBB72108AFB800634B6F /* IQKeyboardManagerSwift.framework */,
+				F5101FAA615CC849F8133242 /* Pods_pomodoro.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D26890B5EA95652519792B55 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7832263BEAE9F99EF1435571 /* Pods-pomodoro.debug.xcconfig */,
+				D7AFB18B769E2129C5B23387 /* Pods-pomodoro.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +111,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7A27D6EB21085E0600CB3084 /* Build configuration list for PBXNativeTarget "pomodoro" */;
 			buildPhases = (
+				882FBF8C9292B97940E936B0 /* [CP] Check Pods Manifest.lock */,
 				7A27D6D221085E0400CB3084 /* Sources */,
 				7A27D6D321085E0400CB3084 /* Frameworks */,
 				7A27D6D421085E0400CB3084 /* Resources */,
+				C2C4519C4F2E6F25AA8C5D1A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -133,6 +172,45 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		882FBF8C9292B97940E936B0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-pomodoro-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C2C4519C4F2E6F25AA8C5D1A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-pomodoro/Pods-pomodoro-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-pomodoro/Pods-pomodoro-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		7A27D6D221085E0400CB3084 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -140,6 +218,9 @@
 			files = (
 				7A27D6E221085E0400CB3084 /* pomodoro.xcdatamodeld in Sources */,
 				7A27D6DC21085E0400CB3084 /* ViewController.swift in Sources */,
+				DD35310B21089BED00C98318 /* Task+CoreDataClass.swift in Sources */,
+				DD35310E21089F3C00C98318 /* DetailViewController.swift in Sources */,
+				DD35310C21089BED00C98318 /* Task+CoreDataProperties.swift in Sources */,
 				7A27D6DA21085E0400CB3084 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -282,6 +363,7 @@
 		};
 		7A27D6EC21085E0600CB3084 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7832263BEAE9F99EF1435571 /* Pods-pomodoro.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -300,6 +382,7 @@
 		};
 		7A27D6ED21085E0600CB3084 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D7AFB18B769E2129C5B23387 /* Pods-pomodoro.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

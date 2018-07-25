@@ -8,13 +8,12 @@
 
 import UIKit
 import CoreData
+var tasks:[Task] = []
 
 class ViewController: UIViewController ,UITableViewDelegate ,UITableViewDataSource {
 
     @IBOutlet weak var myTableView: UITableView!
     
-//    var tasks:[Task] = []
-//    var tasksToShow:[String:[String]] = ["tasID":[], "taskName":[], "deadLine":[], "comment":[]]
     
     override func viewDidLoad() {
     super.viewDidLoad()
@@ -37,37 +36,32 @@ class ViewController: UIViewController ,UITableViewDelegate ,UITableViewDataSour
             // CoreDataからデータをfetchしてtasksに格納
             let fetchRequest: NSFetchRequest<Task> = Task.fetchRequest()
             tasks = try context.fetch(fetchRequest)
-            
-            // tasksToShow配列を空にする。（同じデータを複数表示しないため）
-            for key in tasksToShow.keys {
-                tasksToShow[key] = []
-            }
-            // 先ほどfetchしたデータをtasksToShow配列に格納する
-            for task in tasks {
-                tasksToShow[task.taskName!]?.append(task.taskName!)
-            }
         } catch {
             print("Fetching Failed.")
         }
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return
+        return tasks.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TaskLabel", for: indexPath)
+        cell.textLabel?.text = tasks[indexPath.row].name
+        return cell
     }
-    
+    var selectedIndex:Int!
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        return
+        selectedIndex = indexPath.row
+        performSegue(withIdentifier: "segueDV", sender: nil)
     }
     
     @IBAction func buttonYapped(_ sender: UIBarButtonItem) {
         showTextInputAlert()
-        // TableViewを再読み込み.
-        myTableView.reloadData()
     }
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let dc:DetailViewController = segue.destination as! DetailViewController
+        dc.passedIndex = selectedIndex
+    }
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
@@ -94,11 +88,12 @@ class ViewController: UIViewController ,UITableViewDelegate ,UITableViewDataSour
                     // contextにレコード追加
                     let newRecord = NSManagedObject(entity: task!, insertInto: manageContext)
                     // レコードに値の設定
-                    newRecord.setValue(textField, forKey: "name")
-                    newRecord.setValue(Date(), forKey: "date")
-                    
+                    newRecord.setValue(textField.text!, forKey: "name")
                     do {
                         try manageContext.save() // throwはdo catch とセットで使う
+                        self.getData()
+                        // TableViewを再読み込み.
+                        self.myTableView.reloadData()
                     } catch {
                         print("error:",error) // catchとセットで使う
                     }
