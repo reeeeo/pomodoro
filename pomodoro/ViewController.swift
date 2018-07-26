@@ -13,6 +13,7 @@ var tasks:[Task] = []
 class ViewController: UIViewController ,UITableViewDelegate ,UITableViewDataSource {
 
     @IBOutlet weak var myTableView: UITableView!
+    var isLongTapped:Bool?
     
     
     override func viewDidLoad() {
@@ -25,6 +26,7 @@ class ViewController: UIViewController ,UITableViewDelegate ,UITableViewDataSour
   }
    
     override func viewWillAppear(_ animated: Bool) {
+        isLongTapped = false
         // CoreDataからデータをfetchしてくる
         getData()
         // taskTableViewを再読み込みする
@@ -66,9 +68,12 @@ class ViewController: UIViewController ,UITableViewDelegate ,UITableViewDataSour
     }
     
     // セルの長押しで発動
-    @objc func longTapButton(_ sender: UILongPressGestureRecognizer) {
-        print("passed!")
-        performSegue(withIdentifier: "segueTime", sender: nil)
+    @IBAction func longTapButton(_ sender: UILongPressGestureRecognizer) {
+        if !isLongTapped! {
+            isLongTapped = true
+            print("passed!")
+            performSegue(withIdentifier: "segueTime", sender: nil)
+        }
     }
     
     
