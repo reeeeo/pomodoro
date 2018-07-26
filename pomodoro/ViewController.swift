@@ -55,12 +55,34 @@ class ViewController: UIViewController ,UITableViewDelegate ,UITableViewDataSour
         performSegue(withIdentifier: "segueDV", sender: nil)
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            // coredataの削除処理
+            let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
+            let manageContext = appDelegate.persistentContainer.viewContext
+            let fetchRequest:NSFetchRequest<Task> = Task.fetchRequest()
+            let predicate = NSPredicate(format: "%K = %@", "name", (tasks[indexPath.row].name)!)
+            fetchRequest.predicate = predicate
+            do {
+                let fetchResults = try manageContext.fetch(fetchRequest)
+                for result: AnyObject in fetchResults {
+                    let record = result as! NSManagedObject
+                    manageContext.delete(record)
+                }
+                try manageContext.save()
+            } catch {
+            }
+            tasks.remove(at: indexPath.row)
+            myTableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+    
     @IBAction func buttonYapped(_ sender: UIBarButtonItem) {
         showTextInputAlert()
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let dc:DetailViewController = segue.destination as! DetailViewController
-      print(selectedTask)
+      // print(selectedTask)
         dc.task = selectedTask
     }
   override func didReceiveMemoryWarning() {
