@@ -13,17 +13,18 @@ class TimerViewController: UIViewController {
     @IBOutlet weak var myLabel: UILabel!
     @IBOutlet var mySwipeGesture: UISwipeGestureRecognizer!
     
-    var timer : Timer = Timer()
+    var timer : Timer!
     var count = 5 //25 * 60
     
     override func viewDidLoad() {
         super.viewDidLoad()
-      Timer.scheduledTimer(
+      timer = Timer.scheduledTimer(
         timeInterval: 1,
         target: self,
         selector: #selector(TimerViewController.onUpdate(timer:)),
         userInfo: nil,
         repeats: true)
+      timer.fire()
     }
   
     @objc func onUpdate(timer: Timer) {
@@ -54,8 +55,9 @@ class TimerViewController: UIViewController {
     }
     
     @IBAction func tapCancel(_ sender: UIButton) {
-       self.presentingViewController?.dismiss(animated: true, completion: nil)
-       self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
+       timer.invalidate()
+       performSegue(withIdentifier: "segueTop", sender: nil)
+//       self.presentingViewController?.dismiss(animated: true, completion: nil)
     }
     
     override func didReceiveMemoryWarning() {

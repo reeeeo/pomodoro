@@ -99,6 +99,7 @@
                     </view>
                     <connections>
                         <outlet property="myLabel" destination="FSr-RA-PtI" id="fUl-C5-TOX"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="segueTop" id="Nlb-Ad-hdr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MKd-qT-CEZ" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -55,10 +55,13 @@ class DetailViewController: UIViewController {
         formatter.dateFormat = "yyyy-MM-dd"
         formatter.locale = Locale(identifier: "ja_JP")
         let date = formatter.date(from: myDeadLine.text!)
-        if myDeadLine.text != .none {
-            print(date!)
-            task?.deadLine = date! as NSDate
+        if let d = date {
+            task?.deadLine = d as NSDate
         }
+//        if myDeadLine.text != .none {
+//            print(date!)
+//            task?.deadLine = date! as NSDate
+//        }
 
         task?.comment = mycomments.text
         do{
@@ -66,7 +69,7 @@ class DetailViewController: UIViewController {
         }catch{
             print(error)
         }
-        //self.presentingViewController?.dismiss(animated: true, completion: nil)
+        self.presentingViewController?.dismiss(animated: true, completion: nil)
     }
     @IBAction func tapDeleteButton(_ sender: UIBarButtonItem) {
         // coredataの削除処理
