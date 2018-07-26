@@ -22,6 +22,8 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         myTask.text = task?.name
+        
+//        myDeadLine.text = 
         mycomments.text = task?.comment
         // インプットビュー設定
         datePicker.datePickerMode = .date
@@ -32,6 +34,7 @@ class DetailViewController: UIViewController {
         // 日付のフォーマット
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
+        formatter.locale = Locale(identifier: "ja_JP")
         myDeadLine.text = "\(formatter.string(from: datePicker.date))"
     }
     
@@ -53,8 +56,10 @@ class DetailViewController: UIViewController {
         formatter.locale = Locale(identifier: "ja_JP")
         let date = formatter.date(from: myDeadLine.text!)
         if myDeadLine.text != .none {
+            print(date!)
             task?.deadLine = date! as NSDate
         }
+
         task?.comment = mycomments.text
         do{
             try manageContext.save()
