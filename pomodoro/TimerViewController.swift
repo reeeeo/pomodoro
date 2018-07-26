@@ -9,55 +9,37 @@
 import UIKit
 
 class TimerViewController: UIViewController {
-
+    @IBOutlet weak var myLabel: UILabel!
+  
     var timer : Timer = Timer()
+    var count = 25 * 60
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+      Timer.scheduledTimer(
+        timeInterval: 1,
+        target: self,
+        selector: #selector(TimerViewController.onUpdate(timer:)),
+        userInfo: nil,
+        repeats: true)
     }
-
-    @objc func countDown(){
-        
-        let message = appDelegate.message
-        var mainasu: Int = Int(message!)
-        var keisan = count + mainasu
-        
-        //カウントを減らす。
+  
+    @objc func onUpdate(timer: Timer) {
         count -= 1
-        //カウントダウン状況をラベルに表示
-        if(keisan > 0) {
-            testLabel.text = "残り\(keisan)秒です。"//ここをいじるはず分ラベルと秒ラベルで操作?
-            //            print(count,message,keisan)
-            //        } else if (keisan < 0) {
-            //            appDelegate.message = 0
-            //            testLabel.text = "あああ"
-            //            timer.invalidate()
-            //            Hikari()
-            //}
-        }else {
-            testLabel.text = "おはようございます!"
+        if count > 0 {
+            let (min, sec) = secondsToMinutesSeconds(count)
+            myLabel.text = ("\(min):\(sec)")
+        } else {
+          myLabel.text = "00:00"
             timer.invalidate()
-            //光らせる
-            Hikari()
         }
-        
     }
+  
+    func secondsToMinutesSeconds (_ seconds: Int) -> (Int, Int) {
+        return ((seconds % 3600) / 60, (seconds % 3600) % 60)
+    }
+  
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
