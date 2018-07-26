@@ -30,7 +30,7 @@ class DetailViewController: UIViewController {
         mycomments.text = task?.comment
         // インプットビュー設定
         datePicker.datePickerMode = .date
-        datePicker.setDate(task?.deadLine as! Date, animated: true)
+        datePicker.setDate((task?.deadLine as Date?)!, animated: true)
         myDeadLine.inputView = datePicker
         myDeadLine.text = formatter.string(from: datePicker.date)
     }

@@ -14,8 +14,7 @@ class ViewController: UIViewController ,UITableViewDelegate ,UITableViewDataSour
 
     @IBOutlet weak var myTableView: UITableView!
     var isLongTapped:Bool?
-    
-    
+  
     override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view, typically from a nib.
@@ -62,6 +61,7 @@ class ViewController: UIViewController ,UITableViewDelegate ,UITableViewDataSour
         cell.addGestureRecognizer(myLongPress)
         return cell
     }
+  
     var selectedTask:Task?
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedTask = tasks[indexPath.row]
@@ -94,6 +94,7 @@ class ViewController: UIViewController ,UITableViewDelegate ,UITableViewDataSour
                 }
                 try manageContext.save()
             } catch {
+                
             }
             tasks.remove(at: indexPath.row)
             myTableView.deleteRows(at: [indexPath], with: .fade)

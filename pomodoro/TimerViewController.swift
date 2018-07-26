@@ -14,24 +14,25 @@ class TimerViewController: UIViewController {
     @IBOutlet var mySwipeGesture: UISwipeGestureRecognizer!
     
     var timer : Timer!
-    var count = 5 //25 * 60
-    
+    var count = 25 * 60
+//    var count = 5
+  
     override func viewDidLoad() {
         super.viewDidLoad()
-      timer = Timer.scheduledTimer(
-        timeInterval: 1,
-        target: self,
-        selector: #selector(TimerViewController.onUpdate(timer:)),
-        userInfo: nil,
-        repeats: true)
-      timer.fire()
+        timer = Timer.scheduledTimer(
+            timeInterval: 1,
+            target: self,
+            selector: #selector(TimerViewController.onUpdate(timer:)),
+            userInfo: nil,
+            repeats: true)
+        timer.fire()
     }
   
     @objc func onUpdate(timer: Timer) {
         count -= 1
         if count > 0 {
             let (min, sec) = secondsToMinutesSeconds(count)
-            myLabel.text = ("\(min):\(sec)")
+            myLabel.text = ("\(addZero(min)):\(addZero(sec))")
         } else {
             myLabel.text = "00:00"
             timer.invalidate()
@@ -41,6 +42,10 @@ class TimerViewController: UIViewController {
     
     func secondsToMinutesSeconds (_ seconds: Int) -> (Int, Int) {
         return ((seconds % 3600) / 60, (seconds % 3600) % 60)
+    }
+  
+    func addZero(_ val: Int) -> String {
+        return val < 10 ? "0" + String(val) : String(val)
     }
     
     func alert() {
@@ -55,8 +60,8 @@ class TimerViewController: UIViewController {
     }
     
     @IBAction func tapCancel(_ sender: UIButton) {
-       timer.invalidate()
-       performSegue(withIdentifier: "segueTop", sender: nil)
+        timer.invalidate()
+        performSegue(withIdentifier: "segueTop", sender: nil)
 //       self.presentingViewController?.dismiss(animated: true, completion: nil)
     }
     

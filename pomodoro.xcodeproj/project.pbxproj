@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7A007820210A210A001C9726 /* ポモドーロ.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A00781F210A210A001C9726 /* ポモドーロ.png */; };
 		7A27D6DA21085E0400CB3084 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A27D6D921085E0400CB3084 /* AppDelegate.swift */; };
 		7A27D6DC21085E0400CB3084 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A27D6DB21085E0400CB3084 /* ViewController.swift */; };
 		7A27D6DF21085E0400CB3084 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A27D6DD21085E0400CB3084 /* Main.storyboard */; };
@@ -23,6 +24,7 @@
 
 /* Begin PBXFileReference section */
 		7832263BEAE9F99EF1435571 /* Pods-pomodoro.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pomodoro.debug.xcconfig"; path = "Pods/Target Support Files/Pods-pomodoro/Pods-pomodoro.debug.xcconfig"; sourceTree = "<group>"; };
+		7A00781F210A210A001C9726 /* ポモドーロ.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ポモドーロ.png"; sourceTree = "<group>"; };
 		7A27D6D621085E0400CB3084 /* pomodoro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pomodoro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A27D6D921085E0400CB3084 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7A27D6DB21085E0400CB3084 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 		7A27D6D821085E0400CB3084 /* pomodoro */ = {
 			isa = PBXGroup;
 			children = (
+				7A00781F210A210A001C9726 /* ポモドーロ.png */,
 				7A27D6D921085E0400CB3084 /* AppDelegate.swift */,
 				7A27D6DB21085E0400CB3084 /* ViewController.swift */,
 				DD35310D21089F3C00C98318 /* DetailViewController.swift */,
@@ -170,6 +173,7 @@
 				7A27D6E721085E0600CB3084 /* LaunchScreen.storyboard in Resources */,
 				7A27D6E421085E0600CB3084 /* Assets.xcassets in Resources */,
 				7A27D6DF21085E0400CB3084 /* Main.storyboard in Resources */,
+				7A007820210A210A001C9726 /* ポモドーロ.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
