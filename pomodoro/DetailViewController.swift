@@ -61,7 +61,7 @@ class DetailViewController: UIViewController {
         }catch{
             print(error)
         }
-        // self.presentingViewController?.dismiss(animated: true, completion: nil)
+        //self.presentingViewController?.dismiss(animated: true, completion: nil)
     }
     @IBAction func tapDeleteButton(_ sender: UIBarButtonItem) {
         // coredataの削除処理

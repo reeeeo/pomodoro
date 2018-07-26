@@ -34,11 +34,16 @@ class TimerViewController: UIViewController {
             timer.invalidate()
         }
     }
+    
   
     func secondsToMinutesSeconds (_ seconds: Int) -> (Int, Int) {
         return ((seconds % 3600) / 60, (seconds % 3600) % 60)
     }
   
+    @IBAction func swipeGesture(_ sender: UISwipeGestureRecognizer) {
+        print("すわいぷ")
+        self.presentingViewController?.dismiss(animated: true, completion: nil)
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }

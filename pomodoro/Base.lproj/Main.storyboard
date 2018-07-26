@@ -88,9 +88,13 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="25:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FSr-RA-PtI">
                                 <rect key="frame" x="16" y="221" width="343" height="224"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="120"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="KKY-fH-bhY" appends="YES" id="1XA-aV-nhv"/>
+                                </connections>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -101,6 +105,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MKd-qT-CEZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="KKY-fH-bhY">
+                    <connections>
+                        <action selector="swipeGesture:" destination="bLB-dT-F6o" id="W2T-q8-59y"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1093.5999999999999" y="659.82008995502258"/>
         </scene>
@@ -161,7 +170,11 @@
                                                 <segue destination="iBx-1b-gYx" kind="unwind" unwindAction="exitViewWithSegue:" id="r6p-uN-hUb"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="開始" id="rS2-lp-rwW"/>
+                                        <barButtonItem key="rightBarButtonItem" title="開始" id="rS2-lp-rwW">
+                                            <connections>
+                                                <segue destination="bLB-dT-F6o" kind="show" id="Khy-Vu-441"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -197,4 +210,7 @@
             <point key="canvasLocation" x="1093.5999999999999" y="-86.806596701649184"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Khy-Vu-441"/>
+    </inferredMetricsTieBreakers>
 </document>
