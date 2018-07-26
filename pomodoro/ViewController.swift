@@ -41,7 +41,7 @@ class ViewController: UIViewController ,UITableViewDelegate ,UITableViewDataSour
             tasks = try context.fetch(fetchRequest)
             tasks = tasks.sorted { $0.deadLine!.compare($1.deadLine! as Date) == ComparisonResult.orderedAscending }
         } catch {
-            print("Fetching Failed.")
+          fatalError("Fetching Failed. :: \(error)")
         }
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -72,7 +72,6 @@ class ViewController: UIViewController ,UITableViewDelegate ,UITableViewDataSour
     @IBAction func longTapButton(_ sender: UILongPressGestureRecognizer) {
         if !isLongTapped! {
             isLongTapped = true
-            print("passed!")
             performSegue(withIdentifier: "segueTime", sender: nil)
         }
     }
@@ -94,7 +93,7 @@ class ViewController: UIViewController ,UITableViewDelegate ,UITableViewDataSour
                 }
                 try manageContext.save()
             } catch {
-                
+                fatalError("Deliting Failed. :: \(error)")
             }
             tasks.remove(at: indexPath.row)
             myTableView.deleteRows(at: [indexPath], with: .fade)
@@ -145,7 +144,7 @@ class ViewController: UIViewController ,UITableViewDelegate ,UITableViewDataSour
                         // TableViewを再読み込み.
                         self.myTableView.reloadData()
                     } catch {
-                        print("error:",error) // catchとセットで使う
+                        fatalError("Saving Failed. :: \(error)")
                     }
                 }
             }
