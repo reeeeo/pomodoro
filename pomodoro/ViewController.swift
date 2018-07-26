@@ -14,6 +14,7 @@ class ViewController: UIViewController ,UITableViewDelegate ,UITableViewDataSour
 
     @IBOutlet weak var myTableView: UITableView!
     @IBOutlet var myLongPress: UILongPressGestureRecognizer!
+    var isLongTapped:Bool?
     
     
     override func viewDidLoad() {
@@ -25,6 +26,7 @@ class ViewController: UIViewController ,UITableViewDelegate ,UITableViewDataSour
   }
    
     override func viewWillAppear(_ animated: Bool) {
+        isLongTapped = false
         // CoreDataからデータをfetchしてくる
         getData()
         // taskTableViewを再読み込みする
@@ -59,8 +61,11 @@ class ViewController: UIViewController ,UITableViewDelegate ,UITableViewDataSour
     
     // セルの長押しで発動
     @IBAction func longTapButton(_ sender: UILongPressGestureRecognizer) {
-        print("passed!")
-        performSegue(withIdentifier: "segueTime", sender: nil)
+        if !isLongTapped! {
+            isLongTapped = true
+            print("passed!")
+            performSegue(withIdentifier: "segueTime", sender: nil)
+        }
     }
     
     
