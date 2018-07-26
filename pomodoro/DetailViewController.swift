@@ -15,6 +15,8 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var myDeadLine: UITextField!
     @IBOutlet weak var mycomments: UITextView!
     var datePicker: UIDatePicker = UIDatePicker()
+    let formatter = DateFormatter()
+  
   
     // 詳細画面で表示されるTask
     var task: Task?
@@ -22,19 +24,20 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         myTask.text = task?.name
+        formatter.dateFormat = "yyyy-MM-dd"
         
 //        myDeadLine.text = 
         mycomments.text = task?.comment
         // インプットビュー設定
         datePicker.datePickerMode = .date
+        datePicker.setDate(task?.deadLine as! Date, animated: true)
         myDeadLine.inputView = datePicker
+        myDeadLine.text = formatter.string(from: datePicker.date)
     }
   
     @IBAction func tapDate(_ sender: UITextField) {
         // 日付のフォーマット
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
-        formatter.locale = Locale(identifier: "ja_JP")
+//        formatter.locale = Locale(identifier: "ja_JP")
         myDeadLine.text = "\(formatter.string(from: datePicker.date))"
     }
     
@@ -51,18 +54,21 @@ class DetailViewController: UIViewController {
 //        let predicate = NSPredicate(format: "%K = %@", "name", (task?.name)!)
 //        fetchRequest.predicate = predicate
 //        let fetchData = try! manageContext.fetch(fetchRequest)
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
-        formatter.locale = Locale(identifier: "ja_JP")
-        let date = formatter.date(from: myDeadLine.text!)
-        if let d = date {
-            task?.deadLine = d as NSDate
-        }
+//        let formatter = DateFormatter()
+//        formatter.dateFormat = "yyyy-MM-dd"
+//        formatter.locale = Locale(identifier: "ja_JP")
+//        let date = formatter.date(from: myDeadLine.text!)
+//        let date = formatter.date(from: datePicker.date)
+      
+//        if let d = datePicker.date {
+//            task?.deadLine = datePicker.date as NSDate
+//        }
+      
 //        if myDeadLine.text != .none {
 //            print(date!)
 //            task?.deadLine = date! as NSDate
 //        }
-
+        task?.deadLine = datePicker.date as NSDate
         task?.comment = mycomments.text
         do{
             try manageContext.save()

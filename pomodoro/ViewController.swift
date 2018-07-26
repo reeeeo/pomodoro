@@ -40,6 +40,7 @@ class ViewController: UIViewController ,UITableViewDelegate ,UITableViewDataSour
             // CoreDataからデータをfetchしてtasksに格納
             let fetchRequest: NSFetchRequest<Task> = Task.fetchRequest()
             tasks = try context.fetch(fetchRequest)
+            tasks = tasks.sorted { $0.deadLine!.compare($1.deadLine! as Date) == ComparisonResult.orderedAscending }
         } catch {
             print("Fetching Failed.")
         }
@@ -136,6 +137,7 @@ class ViewController: UIViewController ,UITableViewDelegate ,UITableViewDataSour
                     let newRecord = NSManagedObject(entity: task!, insertInto: manageContext)
                     // レコードに値の設定
                     newRecord.setValue(textField.text!, forKey: "name")
+                    newRecord.setValue(Date(), forKey: "deadLine")
                     do {
                         try manageContext.save() // throwはdo catch とセットで使う
                         self.getData()
