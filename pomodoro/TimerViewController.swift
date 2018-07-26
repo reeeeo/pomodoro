@@ -10,7 +10,8 @@ import UIKit
 
 class TimerViewController: UIViewController {
     @IBOutlet weak var myLabel: UILabel!
-  
+    @IBOutlet var mySwipeGesture: UISwipeGestureRecognizer!
+    
     var timer : Timer = Timer()
     var count = 25 * 60
     
@@ -39,11 +40,12 @@ class TimerViewController: UIViewController {
     func secondsToMinutesSeconds (_ seconds: Int) -> (Int, Int) {
         return ((seconds % 3600) / 60, (seconds % 3600) % 60)
     }
-  
-    @IBAction func swipeGesture(_ sender: UISwipeGestureRecognizer) {
-        print("すわいぷ")
-        self.presentingViewController?.dismiss(animated: true, completion: nil)
+    
+    @IBAction func tapCancel(_ sender: UIButton) {
+       self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
     }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }

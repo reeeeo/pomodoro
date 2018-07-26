@@ -13,7 +13,6 @@ var tasks:[Task] = []
 class ViewController: UIViewController ,UITableViewDelegate ,UITableViewDataSource {
 
     @IBOutlet weak var myTableView: UITableView!
-    @IBOutlet var myLongPress: UILongPressGestureRecognizer!
     
     
     override func viewDidLoad() {
@@ -21,7 +20,8 @@ class ViewController: UIViewController ,UITableViewDelegate ,UITableViewDataSour
     // Do any additional setup after loading the view, typically from a nib.
         myTableView.delegate = self
         myTableView.dataSource = self
-        myLongPress.minimumPressDuration = 2.0
+//        myLongPress = UILongPressGestureRecognizer(target: self, action: #selector(ViewController.longTapButton(_:)))
+//        myLongPress.minimumPressDuration = 2.0
   }
    
     override func viewWillAppear(_ animated: Bool) {
@@ -49,6 +49,14 @@ class ViewController: UIViewController ,UITableViewDelegate ,UITableViewDataSour
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TaskLabel", for: indexPath)
         cell.textLabel?.text = tasks[indexPath.row].name
+        // せるごとにジェスチャー作成
+        let myLongPress: UILongPressGestureRecognizer!
+        // ロングプレスしたときのあくしょん設定
+        myLongPress = UILongPressGestureRecognizer(target: self, action: #selector(ViewController.longTapButton(_:)))
+        // 時間
+        myLongPress.minimumPressDuration = 2.0
+        // セルにジェスチャー追加
+        cell.addGestureRecognizer(myLongPress)
         return cell
     }
     var selectedTask:Task?
@@ -58,7 +66,7 @@ class ViewController: UIViewController ,UITableViewDelegate ,UITableViewDataSour
     }
     
     // セルの長押しで発動
-    @IBAction func longTapButton(_ sender: UILongPressGestureRecognizer) {
+    @objc func longTapButton(_ sender: UILongPressGestureRecognizer) {
         print("passed!")
         performSegue(withIdentifier: "segueTime", sender: nil)
     }

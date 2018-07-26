@@ -31,9 +31,6 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <gestureRecognizers/>
-                                        <connections>
-                                            <outletCollection property="gestureRecognizers" destination="6nB-qZ-JUe" appends="YES" id="V6g-FW-FhV"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -61,7 +58,6 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="myLongPress" destination="6nB-qZ-JUe" id="ERR-qE-Co5"/>
                         <outlet property="myTableView" destination="2Vp-tG-1oO" id="p5w-5R-iDA"/>
                         <segue destination="SgS-y5-fbC" kind="show" identifier="segueDV" id="hgx-pc-ia5"/>
                         <segue destination="bLB-dT-F6o" kind="show" identifier="segueTime" id="OUV-sg-JXn"/>
@@ -69,11 +65,6 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <exit id="iBx-1b-gYx" userLabel="Exit" sceneMemberID="exit"/>
-                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="6nB-qZ-JUe">
-                    <connections>
-                        <action selector="longTapButton:" destination="BYZ-38-t0r" id="6r7-so-1OH"/>
-                    </connections>
-                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="132.68365817091455"/>
         </scene>
@@ -85,17 +76,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="25:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FSr-RA-PtI">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FSr-RA-PtI">
                                 <rect key="frame" x="16" y="221" width="343" height="224"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="120"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="113"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="KKY-fH-bhY" appends="YES" id="1XA-aV-nhv"/>
-                                </connections>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d7N-jP-o6Q">
+                                <rect key="frame" x="101" y="550" width="172" height="53"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="34"/>
+                                <state key="normal" title="キャンセル"/>
+                                <connections>
+                                    <action selector="tapCancel:" destination="bLB-dT-F6o" eventType="touchUpInside" id="5ks-7K-B3F"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="pB3-pH-XVy"/>
@@ -105,11 +102,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MKd-qT-CEZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="right" id="KKY-fH-bhY">
-                    <connections>
-                        <action selector="swipeGesture:" destination="bLB-dT-F6o" id="W2T-q8-59y"/>
-                    </connections>
-                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1093.5999999999999" y="659.82008995502258"/>
         </scene>
@@ -211,6 +203,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Khy-Vu-441"/>
+        <segue reference="OUV-sg-JXn"/>
     </inferredMetricsTieBreakers>
 </document>
