@@ -13,6 +13,7 @@ var tasks:[Task] = []
 class ViewController: UIViewController ,UITableViewDelegate ,UITableViewDataSource {
 
     @IBOutlet weak var myTableView: UITableView!
+    @IBOutlet var myLongPress: UILongPressGestureRecognizer!
     
     
     override func viewDidLoad() {
@@ -20,6 +21,7 @@ class ViewController: UIViewController ,UITableViewDelegate ,UITableViewDataSour
     // Do any additional setup after loading the view, typically from a nib.
         myTableView.delegate = self
         myTableView.dataSource = self
+        myLongPress.minimumPressDuration = 2.0
   }
    
     override func viewWillAppear(_ animated: Bool) {
@@ -55,6 +57,13 @@ class ViewController: UIViewController ,UITableViewDelegate ,UITableViewDataSour
         performSegue(withIdentifier: "segueDV", sender: nil)
     }
     
+    // セルの長押しで発動
+    @IBAction func longTapButton(_ sender: UILongPressGestureRecognizer) {
+        print("passed!")
+        performSegue(withIdentifier: "segueTime", sender: nil)
+    }
+    
+    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // coredataの削除処理
@@ -81,9 +90,11 @@ class ViewController: UIViewController ,UITableViewDelegate ,UITableViewDataSour
         showTextInputAlert()
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let dc:DetailViewController = segue.destination as! DetailViewController
-      // print(selectedTask)
-        dc.task = selectedTask
+        if segue.destination is DetailViewController {
+            let dc:DetailViewController = segue.destination as! DetailViewController
+            // print(selectedTask)
+            dc.task = selectedTask
+        }
     }
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()

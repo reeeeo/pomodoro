@@ -30,6 +30,10 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="6nB-qZ-JUe" appends="YES" id="V6g-FW-FhV"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -57,29 +61,45 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="myLongPress" destination="6nB-qZ-JUe" id="ERR-qE-Co5"/>
                         <outlet property="myTableView" destination="2Vp-tG-1oO" id="p5w-5R-iDA"/>
                         <segue destination="SgS-y5-fbC" kind="show" identifier="segueDV" id="hgx-pc-ia5"/>
+                        <segue destination="bLB-dT-F6o" kind="show" identifier="segueTime" id="OUV-sg-JXn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <exit id="iBx-1b-gYx" userLabel="Exit" sceneMemberID="exit"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="6nB-qZ-JUe">
+                    <connections>
+                        <action selector="longTapButton:" destination="BYZ-38-t0r" id="6r7-so-1OH"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="132.68365817091455"/>
         </scene>
-        <!--View Controller-->
+        <!--Timer View Controller-->
         <scene sceneID="c6t-lM-OFe">
             <objects>
-                <viewController id="bLB-dT-F6o" sceneMemberID="viewController">
+                <viewController id="bLB-dT-F6o" customClass="TimerViewController" customModule="pomodoro" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DaT-Tf-I8Y">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="25:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FSr-RA-PtI">
+                                <rect key="frame" x="16" y="221" width="343" height="224"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="120"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="pB3-pH-XVy"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MKd-qT-CEZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1094" y="660"/>
+            <point key="canvasLocation" x="1093.5999999999999" y="659.82008995502258"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="cJh-RF-fHP">

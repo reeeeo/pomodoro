@@ -32,7 +32,7 @@ class DetailViewController: UIViewController {
         // 日付のフォーマット
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
-        myDeadLine.text = "\(formatter.string(from: Date()))"
+        myDeadLine.text = "\(formatter.string(from: datePicker.date))"
     }
     
     override func didReceiveMemoryWarning() {
@@ -44,22 +44,24 @@ class DetailViewController: UIViewController {
         // coredataの更新処理
         let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
         let manageContext = appDelegate.persistentContainer.viewContext
-        let fetchRequest:NSFetchRequest<Task> = Task.fetchRequest()
-        let predicate = NSPredicate(format: "%K = %@", "name", (task?.name)!)
-        fetchRequest.predicate = predicate
-        let fetchData = try! manageContext.fetch(fetchRequest)
-        
-        if(!fetchData.isEmpty){
-            for i in 0..<fetchData.count{
-                //fetchData[i].deadLine = myDeadLine.text
-                fetchData[i].comment = mycomments.text
-            }
-            do{
-                try manageContext.save()
-            }catch{
-                print(error)
-            }
+//        let fetchRequest:NSFetchRequest<Task> = Task.fetchRequest()
+//        let predicate = NSPredicate(format: "%K = %@", "name", (task?.name)!)
+//        fetchRequest.predicate = predicate
+//        let fetchData = try! manageContext.fetch(fetchRequest)
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        formatter.locale = Locale(identifier: "ja_JP")
+        let date = formatter.date(from: myDeadLine.text!)
+        if myDeadLine.text != .none {
+            task?.deadLine = date! as NSDate
         }
+        task?.comment = mycomments.text
+        do{
+            try manageContext.save()
+        }catch{
+            print(error)
+        }
+        // self.presentingViewController?.dismiss(animated: true, completion: nil)
     }
     @IBAction func tapDeleteButton(_ sender: UIBarButtonItem) {
         // coredataの削除処理

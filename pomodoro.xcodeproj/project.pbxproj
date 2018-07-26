@@ -16,6 +16,7 @@
 		DD35310B21089BED00C98318 /* Task+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD35310921089BED00C98318 /* Task+CoreDataClass.swift */; };
 		DD35310C21089BED00C98318 /* Task+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD35310A21089BED00C98318 /* Task+CoreDataProperties.swift */; };
 		DD35310E21089F3C00C98318 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD35310D21089F3C00C98318 /* DetailViewController.swift */; };
+		DD532F15210999EB004700E8 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD532F14210999EB004700E8 /* TimerViewController.swift */; };
 		DDD6DBB82108AFB800634B6F /* IQKeyboardManagerSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDD6DBB72108AFB800634B6F /* IQKeyboardManagerSwift.framework */; };
 		F442E8E28225136B0B2EDBB9 /* Pods_pomodoro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5101FAA615CC849F8133242 /* Pods_pomodoro.framework */; };
 /* End PBXBuildFile section */
@@ -34,6 +35,7 @@
 		DD35310921089BED00C98318 /* Task+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataClass.swift"; sourceTree = "<group>"; };
 		DD35310A21089BED00C98318 /* Task+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		DD35310D21089F3C00C98318 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		DD532F14210999EB004700E8 /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		DDD6DBB72108AFB800634B6F /* IQKeyboardManagerSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = IQKeyboardManagerSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5101FAA615CC849F8133242 /* Pods_pomodoro.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pomodoro.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -77,6 +79,7 @@
 				7A27D6D921085E0400CB3084 /* AppDelegate.swift */,
 				7A27D6DB21085E0400CB3084 /* ViewController.swift */,
 				DD35310D21089F3C00C98318 /* DetailViewController.swift */,
+				DD532F14210999EB004700E8 /* TimerViewController.swift */,
 				7A27D6DD21085E0400CB3084 /* Main.storyboard */,
 				7A27D6E321085E0600CB3084 /* Assets.xcassets */,
 				7A27D6E521085E0600CB3084 /* LaunchScreen.storyboard */,
@@ -219,6 +222,7 @@
 				7A27D6E221085E0400CB3084 /* pomodoro.xcdatamodeld in Sources */,
 				7A27D6DC21085E0400CB3084 /* ViewController.swift in Sources */,
 				DD35310B21089BED00C98318 /* Task+CoreDataClass.swift in Sources */,
+				DD532F15210999EB004700E8 /* TimerViewController.swift in Sources */,
 				DD35310E21089F3C00C98318 /* DetailViewController.swift in Sources */,
 				DD35310C21089BED00C98318 /* Task+CoreDataProperties.swift in Sources */,
 				7A27D6DA21085E0400CB3084 /* AppDelegate.swift in Sources */,
