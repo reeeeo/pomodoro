@@ -51,7 +51,7 @@ class DetailViewController: UIViewController {
         
         if(!fetchData.isEmpty){
             for i in 0..<fetchData.count{
-                fetchData[i].deadLine = myDeadLine.text
+                //fetchData[i].deadLine = myDeadLine.text
                 fetchData[i].comment = mycomments.text
             }
             do{
@@ -77,6 +77,7 @@ class DetailViewController: UIViewController {
             try manageContext.save()
         } catch {
         }
+        self.presentingViewController?.dismiss(animated: true, completion: nil)
     }
     
     /*
